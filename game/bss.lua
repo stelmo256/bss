@@ -330,9 +330,7 @@ getgenv().kocmoc = {
         defmask = "Bubble",
         resettimer = 3,
     },
-    cubsettings = {
-        cb = true
-    },
+   
     dispensesettings = {
         blub = true,
         straw = true,
@@ -1781,7 +1779,7 @@ end end)
 
 game:GetService('RunService').Heartbeat:connect(function() 
     if kocmoc.toggles.autoquest then firesignal(game:GetService("Players").LocalPlayer.PlayerGui.ScreenGui.NPC.ButtonOverlay.MouseButton1Click) end
-    game.Workspace.Cubs["Black"].Humanoid.WalkSpeed = kocmoc.vars.cubwalkspeed
+    if kocmoc.toggles.loopspeed then game.Workspace.Cubs["Black"].Humanoid.WalkSpeed = kocmoc.vars.cubwalkspeed end
     if kocmoc.toggles.loopspeed then game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = kocmoc.vars.walkspeed end
     if kocmoc.toggles.loopjump then game.Players.LocalPlayer.Character.Humanoid.JumpPower = kocmoc.vars.jumppower end
 end)
