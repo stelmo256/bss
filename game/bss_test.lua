@@ -905,10 +905,10 @@ if string.find(v.Name,"Mob Panel") or string.find(v.Name,"Utility Panel") then
 v.Visible = false end end
 else for i,v in pairs(game:GetService("CoreGui"):GetDescendants()) do if string.find(v.Name,"Mob Panel") or string.find(v.Name,"Utility Panel") then v.Visible = true end end end end)
 local farmo = farmtab:CreateSection("Farming")
-local fielddropdown = farmo:CreateDropdown("Field", fieldstable, function(String) kocmoc.vars.field = String end) fielddropdown:SetOption(fieldstable[2])
+local fielddropdown = farmo:CreateDropdown("Field", fieldstable, function(String) kocmoc.vars.field = String end) fielddropdown:SetOption(fieldstable[10])
 convertatslider = farmo:CreateSlider("Convert At", 0, 100, 100, false, function(Value) kocmoc.vars.convertat = Value end)
 local autofarmtoggle = farmo:CreateToggle("Autofarm [⚙]", nil, function(State) kocmoc.toggles.autofarm = State end) autofarmtoggle:CreateKeybind("U", function(Key) end)
-farmo:CreateToggle("Autodig", nil, function(State) kocmoc.toggles.autodig = State end)
+local autodigtoggle = farmo:CreateToggle("Autodig", nil, function(State) Window:Toggle(State) kocmoc.toggles.autodig = State end) autodigtoggle:SetState(true)
 farmo:CreateDropdown("Autodig Mode", {"Normal","Collector Steal"}, function(Option)  kocmoc.vars.autodigmode = Option end)
 
 local contt = farmtab:CreateSection("Container Tools")
