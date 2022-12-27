@@ -843,7 +843,7 @@ local function fetchBuffTable(stats)
     return stTab
 end
 
-local Config = { WindowName = "Kocmoc v"..temptable.version.." Remastered", Color = Color3.fromRGB(164, 84, 255), Keybind = Enum.KeyCode.Semicolon}
+local Config = { WindowName = "Kocmoc v"..temptable.version.." Remastered v1", Color = Color3.fromRGB(164, 84, 255), Keybind = Enum.KeyCode.Semicolon}
 local Window = library:CreateWindow(Config, game:GetService("CoreGui"))
 
 local hometab = Window:CreateTab("Home")
@@ -906,7 +906,7 @@ if string.find(v.Name,"Mob Panel") or string.find(v.Name,"Utility Panel") then
 v.Visible = false end end
 else for i,v in pairs(game:GetService("CoreGui"):GetDescendants()) do if string.find(v.Name,"Mob Panel") or string.find(v.Name,"Utility Panel") then v.Visible = true end end end end)
 
-farmtab.Activate()
+--farmtab.Activate()
 
 local farmo = farmtab:CreateSection("Farming")
 local fielddropdown = farmo:CreateDropdown("Field", fieldstable, function(String) kocmoc.vars.field = String end) fielddropdown:SetOption(fieldstable[10])
