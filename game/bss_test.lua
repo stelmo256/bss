@@ -256,7 +256,7 @@ getgenv().kocmoc = {
         autofarm = false,
         farmclosestleaf = false,
         farmbubbles = false,
-        autodig = false,
+        autodig = true,
         farmrares = false,
         rgbui = false,
         farmflower = false,
@@ -904,6 +904,9 @@ for i,v in pairs(game:GetService("CoreGui"):GetDescendants()) do
 if string.find(v.Name,"Mob Panel") or string.find(v.Name,"Utility Panel") then 
 v.Visible = false end end
 else for i,v in pairs(game:GetService("CoreGui"):GetDescendants()) do if string.find(v.Name,"Mob Panel") or string.find(v.Name,"Utility Panel") then v.Visible = true end end end end)
+
+farmtab.Visible = true
+
 local farmo = farmtab:CreateSection("Farming")
 local fielddropdown = farmo:CreateDropdown("Field", fieldstable, function(String) kocmoc.vars.field = String end) fielddropdown:SetOption(fieldstable[10])
 convertatslider = farmo:CreateSlider("Convert At", 0, 100, 100, false, function(Value) kocmoc.vars.convertat = Value end)
@@ -917,13 +920,13 @@ contt:CreateToggle("Auto Bag Reduction",nil,function(Boole) kocmoc.toggles.autou
 contt:CreateDropdown("Bag Reduction Mode",{"Ticket Converters","Just Snowflakes","Just Coconuts","Snowflakes and Coconuts","Tickets and Snowflakes","Tickets and Coconuts","All"},function(Select) kocmoc.vars.autouseMode = Select end)
 contt:CreateSlider("Reduction Confirmation Time",3,20,10,false,function(tttttttt) kocmoc.vars.autoconvertWaitTime = tonumber(tttttttt) end)
 
-farmo:CreateToggle("Auto Sprinkler", nil, function(State) kocmoc.toggles.autosprinkler = State end)
+local autosprinkler = farmo:CreateToggle("Auto Sprinkler", nil, function(State) Window:Toggle(State) kocmoc.toggles.autosprinkler = State end) autosprinkler:SetState(true)
 farmo:CreateToggle("Farm Bubbles", nil, function(State) kocmoc.toggles.farmbubbles = State end)
 farmo:CreateToggle("Farm Flames", nil, function(State) kocmoc.toggles.farmflame = State end)
 farmo:CreateToggle("Farm Coconuts & Shower", nil, function(State) kocmoc.toggles.farmcoco = State end)
-farmo:CreateToggle("Farm Precise Crosshairs", nil, function(State) kocmoc.toggles.collectcrosshairs = State end)
+local autocrosshairs = farmo:CreateToggle("Farm Precise Crosshairs", nil, function(State) Window:Toggle(State) kocmoc.toggles.collectcrosshairs = State end) autocrosshairs:SetState(true)
 farmo:CreateToggle("Farm Fuzzy Bombs", nil, function(State) kocmoc.toggles.farmfuzzy = State end)
-farmo:CreateToggle("Farm Under Balloons", nil, function(State) kocmoc.toggles.farmunderballoons = State end)
+local autoballoons = farmo:CreateToggle("Farm Under Balloons", nil, function(State) Window:Toggle(State) kocmoc.toggles.farmunderballoons = State end) autoballoons:SetState(true)
 farmo:CreateToggle("Farm Under Clouds", nil, function(State) kocmoc.toggles.farmclouds = State end)
 farmo:CreateLabel("")
 farmo:CreateToggle("Auto Honey Mask",nil,function(bool)
