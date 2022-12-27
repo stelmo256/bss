@@ -314,7 +314,7 @@ getgenv().kocmoc = {
         convertat = 100,
         farmspeed = 60,
         prefer = "Tokens",
-        cubwalkspeed = 130,
+        cubwalkspeed = 250,
         walkspeed = 130,
         jumppower = 130,
         npcprefer = "All Quests",
@@ -1761,7 +1761,7 @@ task.spawn(function() while task.wait(1) do
     temptable.honeycurrent = statsget().Totals.Honey
     if kocmoc.toggles.honeystorm then game.ReplicatedStorage.Events.ToyEvent:FireServer("Honeystorm") end
     if kocmoc.toggles.collectgingerbreads then game:GetService("ReplicatedStorage").Events.ToyEvent:FireServer("Gingerbread House") end
-    game.Cubs.Black.Humanoid.WalkSpeed = kocmoc.vars.cubwalkspeed 
+    game.Workspace.Cubs["Black"].Humanoid.WalkSpeed = kocmoc.vars.cubwalkspeed 
     if kocmoc.toggles.autodispense then
         if kocmoc.dispensesettings.rj then local A_1 = "Free Royal Jelly Dispenser" local Event = game:GetService("ReplicatedStorage").Events.ToyEvent Event:FireServer(A_1) end
         if kocmoc.dispensesettings.blub then game:GetService("ReplicatedStorage").Events.ToyEvent:FireServer("Blueberry Dispenser") end
