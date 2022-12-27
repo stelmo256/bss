@@ -288,7 +288,7 @@ getgenv().kocmoc = {
         farmsnowflakes = false,
         collectgingerbreads = true,
         collectcrosshairs = false,
-        farmpuffshrooms = fatruelse,
+        farmpuffshrooms = true,
         tptonpc = false,
         donotfarmtokens = false,
         convertballoons = true,
@@ -330,7 +330,9 @@ getgenv().kocmoc = {
         defmask = "Bubble",
         resettimer = 3,
     },
-   
+    cubsettings = {
+        cb = true
+    },
     dispensesettings = {
         blub = true,
         straw = true,
