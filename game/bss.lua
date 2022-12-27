@@ -314,6 +314,7 @@ getgenv().kocmoc = {
         convertat = 100,
         farmspeed = 60,
         prefer = "Tokens",
+        cubwalkspeed = 130,
         walkspeed = 130,
         jumppower = 130,
         npcprefer = "All Quests",
@@ -329,6 +330,9 @@ getgenv().kocmoc = {
         defmask = "Bubble",
         resettimer = 3,
     },
+    cubsettings = {
+        cb = true
+    }
     dispensesettings = {
         blub = true,
         straw = true,
@@ -1289,6 +1293,8 @@ raresettings:CreateButton("Remove Token From Blacklist", function()
 end)
 raresettings:CreateDropdown("Tokens Blacklist", kocmoc.bltokens, function(Option) end)
 raresettings:CreateDropdown("Rares List", kocmoc.rares, function(Option) end)
+local cubsettings = setttab:CreateSection("Cub Buddy Settings")
+cubsettings:CreateSlider("Cub Walk Speed", 0, 150, 70, false, function(Value) kocmoc.vars.cubwalkspeed = Value end)
 local dispsettings = setttab:CreateSection("Auto Dispenser & Auto Boosters Settings")
 dispsettings:CreateToggle("Royal Jelly Dispenser", nil, function(State) kocmoc.dispensesettings.rj = not kocmoc.dispensesettings.rj end)
 dispsettings:CreateToggle("Blueberry Dispenser", nil,  function(State) kocmoc.dispensesettings.blub = not kocmoc.dispensesettings.blub end)
@@ -1755,6 +1761,7 @@ task.spawn(function() while task.wait(1) do
     temptable.honeycurrent = statsget().Totals.Honey
     if kocmoc.toggles.honeystorm then game.ReplicatedStorage.Events.ToyEvent:FireServer("Honeystorm") end
     if kocmoc.toggles.collectgingerbreads then game:GetService("ReplicatedStorage").Events.ToyEvent:FireServer("Gingerbread House") end
+    game.Cubs.Black.Humanoid.WalkSpeed = kocmoc.vars.cubwalkspeed 
     if kocmoc.toggles.autodispense then
         if kocmoc.dispensesettings.rj then local A_1 = "Free Royal Jelly Dispenser" local Event = game:GetService("ReplicatedStorage").Events.ToyEvent Event:FireServer(A_1) end
         if kocmoc.dispensesettings.blub then game:GetService("ReplicatedStorage").Events.ToyEvent:FireServer("Blueberry Dispenser") end
