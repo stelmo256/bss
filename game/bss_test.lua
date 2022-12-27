@@ -906,7 +906,6 @@ if string.find(v.Name,"Mob Panel") or string.find(v.Name,"Utility Panel") then
 v.Visible = false end end
 else for i,v in pairs(game:GetService("CoreGui"):GetDescendants()) do if string.find(v.Name,"Mob Panel") or string.find(v.Name,"Utility Panel") then v.Visible = true end end end end)
 
---farmtab.Activate()
 
 local farmo = farmtab:CreateSection("Farming")
 local fielddropdown = farmo:CreateDropdown("Field", fieldstable, function(String) kocmoc.vars.field = String end) fielddropdown:SetOption(fieldstable[10])
