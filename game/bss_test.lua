@@ -315,6 +315,7 @@ getgenv().kocmoc = {
         prefer = "Tokens",
         walkspeed = 150,
         jumppower = 150,
+        cubwalkspeed = 250,
         npcprefer = "All Quests",
         farmtype = "Walk",
         monstertimer = 3,
@@ -1267,7 +1268,8 @@ farmsettings:CreateToggle("Convert Hive Balloon",nil, function(State) kocmoc.tog
 farmsettings:CreateToggle("Don't Farm Tokens",nil, function(State) kocmoc.toggles.donotfarmtokens = State end)
 farmsettings:CreateToggle("Enable Token Blacklisting",nil, function(State) kocmoc.toggles.enabletokenblacklisting = State end)
 local walkspeedoption = farmsettings:CreateSlider("Walk Speed", 0, 150, 150, false, function(Value) kocmoc.vars.walkspeed = Value end) 
-local jumppoweroption = farmsettings:CreateSlider("Jump Power", 0, 150, 150, false, function(Value) kocmoc.vars.jumppower = Value end) 
+local jumppoweroption = farmsettings:CreateSlider("Jump Power", 0, 150, 150, false, function(Value) kocmoc.vars.jumppower = Value end)
+local cubwalkspeedoption = farmsettings:CreateSlider("Cub Buddy Walk Speed", 0, 250, 250, false, function(Value) kocmoc.vars.cubwalkspeed = Value end) 
 local raresettings = setttab:CreateSection("Tokens Settings")
 raresettings:CreateTextBox("Asset ID", 'rbxassetid', false, function(Value) rarename = Value end)
 raresettings:CreateButton("Add Token To Rares List", function()
@@ -1779,6 +1781,7 @@ end end)
 game:GetService('RunService').Heartbeat:connect(function() 
     if kocmoc.toggles.autoquest then firesignal(game:GetService("Players").LocalPlayer.PlayerGui.ScreenGui.NPC.ButtonOverlay.MouseButton1Click) end
     if kocmoc.toggles.loopspeed then game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = kocmoc.vars.walkspeed end
+    if kocmoc.toggles.loopspeed then game.Workspace.Cubs["Black"].Humanoid.WalkSpeed = kocmoc.vars.cubwalkspeed end
     if kocmoc.toggles.loopjump then game.Players.LocalPlayer.Character.Humanoid.JumpPower = kocmoc.vars.jumppower end
 end)
 
